@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sl-font: "EB Garamond Variable", serif;
+  --sl-text-xs: 1rem; /* 16px */
+  --sl-text-sm: 1.125rem; /* 18px */
+  --sl-text-base: 1.25rem; /* 20px */
+  --sl-text-lg: 1.375rem; /* 22px */
+  --sl-text-xl: 1.5rem; /* 24px */
+  --sl-text-2xl: 1.688rem; /* 27px */
+  --sl-text-3xl: 1.8125rem; /* 29px */
+  --sl-text-4xl: 2.1875rem; /* 35px */
+  --sl-text-5xl: 2.625rem; /* 42px */
+  --sl-text-6xl: 4rem; /* 64px */
+  --purple-hsl: 290, 59%, 66%;
+  --scarlet-hsl: 344, 63%, 45%;
+  --blue-hsl: 245, 98%, 11%;
+  --overlay-purple: hsla(var(--purple-hsl), 0.3);
+  --overlay-scarlet: hsla(var(--scarlet-hsl), 0.3);
+  --overlay-blue: hsla(var(--blue-hsl), 0.7);
+}
+
+:root[data-theme="light"] {
+  --purple-hsl: 290, 85%, 65%;
+  --scarlet-hsl: 344, 85%, 65%;
+  --blue-hsl: 245, 85%, 65%;
+}
+
+.page {
+  background: linear-gradient(215deg, var(--overlay-scarlet), transparent 40%),
+    radial-gradient(var(--overlay-purple), transparent 40%) no-repeat -70vw -50vh /
+      125vw 200vh,
+    radial-gradient(var(--overlay-blue), transparent 65%) no-repeat 50%
+      calc(100% + 20rem) / 90rem 35rem;
+}
+
+.header {
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+starlight-theme-select select:focus {
+  outline: none;
+}
+
+[data-has-hero] .hero > img {
+  filter: drop-shadow(0 0 3rem var(--overlay-purple));
+}
+
+[data-has-sidebar] #starlight__sidebar {
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+nav[aria-labelledby="starlight__on-this-page--mobile"] {
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+@media (min-width: 50rem) {
+  site-search button[data-open-modal] {
+    max-width: 46rem;
+  }
+}
+
+[aria-current="page"],
+[aria-current="page"]:hover,
+[aria-current="page"]:focus {
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--sl-color-text-accent);
+}
+
+a[aria-current="true"],
+a[aria-current="true"]:hover,
+a[aria-current="true"]:focus {
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--sl-color-text-accent);
+}

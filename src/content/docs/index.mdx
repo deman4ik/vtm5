@@ -1,0 +1,20 @@
+---
+title: "Онлайн справочник по VtM 5e"
+description: "Онлайн справочник по Вампиры: Маскарад. Пятая редакция"
+template: splash
+hero:
+  #tagline: "Вампиры: Маскарад. Пятая редакция"
+  image:
+    file: ../../assets/vtm-ru-red.svg
+  #   - text: Read the Starlight docs
+  #     link: https://starlight.astro.build
+  #     icon: external
+---
+
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+
+<CardGrid>
+  <LinkCard title="Основные параметры" href="/traits" />
+  <LinkCard title="Источники" href="/sources/cr" />
+  <LinkCard title="О проекте" href="/about" />
+</CardGrid>

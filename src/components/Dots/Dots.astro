@@ -1,0 +1,18 @@
+---
+interface Props {
+  count: number;
+}
+
+const { count } = Astro.props;
+
+const list = [...Array(count).keys()];
+---
+
+{list.map(() => <span class="circle">&#9679;</span>)}
+
+<style>
+  span.circle {
+    font-size: calc(var(--sl-text-xs) - 0.2rem);
+    color: var(--sl-color-text);
+  }
+</style>

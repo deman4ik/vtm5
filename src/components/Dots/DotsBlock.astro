@@ -1,0 +1,16 @@
+---
+interface Props {
+  count: number;
+}
+
+const { count } = Astro.props;
+
+import Dots from "./Dots.astro";
+---
+
+<dt class="dots-dt">
+  <Dots count={count} />
+</dt>
+<dd class="dots-dd">
+  <slot />
+</dd>
