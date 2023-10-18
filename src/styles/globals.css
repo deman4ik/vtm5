@@ -20,6 +20,8 @@
   --overlay-purple: hsla(var(--purple-hsl), 0.3);
   --overlay-scarlet: hsla(var(--scarlet-hsl), 0.3);
   --overlay-blue: hsla(var(--blue-hsl), 0.7);
+
+  --pagefind-ui-scale: 1;
 }
 
 :root[data-theme="light"] {
@@ -46,6 +48,18 @@
 starlight-theme-select select:focus {
   outline: none;
 }
+
+input.pagefind-ui__search-input:focus {
+  outline: none;
+}
+
+/* site-search button[data-open-modal] {
+  opacity: 0.5;
+}
+
+site-search button[data-open-modal]:hover {
+  opacity: 1;
+} */
 
 [data-has-hero] .hero > img {
   filter: drop-shadow(0 0 3rem var(--overlay-purple));
