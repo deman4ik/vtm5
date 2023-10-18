@@ -7,7 +7,12 @@ export const collections = {
       docsSchema()(ctx).extend({
         // Add a new optional field to the schema.
         category: z.string().optional(),
-        source: z.string().optional(),
+        source: z
+          .object({
+            code: z.string(),
+            title: z.string()
+          })
+          .optional(),
         original: z.string().optional(),
         attrs: z
           .array(

@@ -23,6 +23,14 @@ export default defineConfig({
         "./src/styles/override-content.css",
         "@fontsource-variable/eb-garamond"
       ],
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            src: "../../node_modules/preline/dist/preline.js"
+          }
+        }
+      ],
       components: {
         ThemeProvider: "./src/components/override/ThemeProvider.astro",
         PageTitle: "./src/components/override/PageTitle.astro"
@@ -56,6 +64,43 @@ export default defineConfig({
                 {
                   label: "Выносливость",
                   link: "/attributes/stamina"
+                }
+              ]
+            },
+
+            {
+              label: "Социальные",
+              collapsed: true,
+              items: [
+                {
+                  label: "Обаяние",
+                  link: "/attributes/charisma"
+                },
+                {
+                  label: "Манипуляция",
+                  link: "/attributes/manipulation"
+                },
+                {
+                  label: "Самообладание",
+                  link: "/attributes/composure"
+                }
+              ]
+            },
+            {
+              label: "Ментальные",
+              collapsed: true,
+              items: [
+                {
+                  label: "Интеллект",
+                  link: "/attributes/intelligence"
+                },
+                {
+                  label: "Смекалка",
+                  link: "/attributes/wits"
+                },
+                {
+                  label: "Самообладание",
+                  link: "/attributes/resolve"
                 }
               ]
             }

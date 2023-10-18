@@ -1,36 +1,51 @@
 ---
 const PAGE_TITLE_ID = "_top";
 import type { Props } from "@astrojs/starlight/props";
+import BadgeLink from "@/components/BadgeLink.astro";
+
+const { title, original, category, attrs, source } = Astro.props.entry.data;
 ---
 
 <div class="page-title-container">
   <div class="left">
-    <h1 id={PAGE_TITLE_ID}>{Astro.props.entry.data.title}</h1>
-    <span>{Astro.props.entry.data.original}</span>
+    <h1 id={PAGE_TITLE_ID} transition:name={title}>
+      {title}
+    </h1>
+    <span>{original}</span>
   </div>
-  <dl class="right">
+
+  <div class="right">
     {
-      Astro.props.entry.data.attrs &&
-        Astro.props.entry.data.attrs.map(({ key, value }) => (
-          <>
-            <dt>{key}</dt>
-            <dd>{value}</dd>
-          </>
-        ))
-    }
-    {
-      Astro.props.entry.data.source && (
-        <>
-          <dt>Источник:</dt>
-          <dd>
-            <a href={`/sources/${Astro.props.entry.data.source.toLowerCase()}`}>
-              {Astro.props.entry.data.source}
-            </a>
-          </dd>
-        </>
+      category && (
+        <span class="text-lg font-medium text-gray-400">{category}</span>
       )
     }
-  </dl>
+    <dl data-pagefind-ignore="all">
+      {
+        attrs &&
+          attrs.map(({ key, value }) => (
+            <>
+              <dt>{key}</dt>
+              <dd>{value}</dd>
+            </>
+          ))
+      }
+      {
+        source && (
+          <>
+            <dt>Источник:</dt>
+            <dd>
+              <BadgeLink
+                href={`/sources/${source.code.toLowerCase()}`}
+                title={source.code}
+                tooltip={source.title}
+              />
+            </dd>
+          </>
+        )
+      }
+    </dl>
+  </div>
 </div>
 <style>
   h1 {
@@ -48,13 +63,20 @@ import type { Props } from "@astrojs/starlight/props";
     justify-content: space-between;
   }
   .left {
-    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   .right {
-    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
   }
   .right dt {
     font-weight: 600;
+    justify-self: flex-end;
   }
   .right dd {
     margin-left: 0.3rem;

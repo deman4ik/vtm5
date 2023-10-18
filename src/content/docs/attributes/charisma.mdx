@@ -1,0 +1,31 @@
+---
+title: Обаяние
+original: Charisma
+category: Социальная характеристика
+description: Обаяние — это естественный шарм, изящество и сексуальная привлекательность. Люди тянутся к тем, кто обладает подобными качествами, и это облегчает охоту.
+order: 4
+source:
+  code: CR
+  title: Книга Правил
+---
+
+import DotsContainer from "@/components/Dots/DotsContainer.astro";
+import DotsBlock from "@/components/Dots/DotsBlock.astro";
+
+{frontmatter.description}
+
+<DotsContainer>
+  <DotsBlock count={1}>Ты умеешь говорить, но мало кто тебя слушает.</DotsBlock>
+  <DotsBlock count={2}>
+    Ты приятен в общении, хоть ты и нежить. Возможно, у тебя даже есть друзья.
+  </DotsBlock>
+  <DotsBlock count={3}>
+    Люди безоговорочно тебе доверяют. Ты без труда заводишь друзей.
+  </DotsBlock>
+  <DotsBlock count={4}>
+    Ты наделён огромной харизмой. У тебя много поклонников.
+  </DotsBlock>
+  <DotsBlock count={5}>
+    Тебе под силу поднять восстание в городе, если пожелаешь.
+  </DotsBlock>
+</DotsContainer>
